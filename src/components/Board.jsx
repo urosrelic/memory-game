@@ -7,6 +7,12 @@ export const Board = () => {
   const [apiData, setApiData] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
 
+  const shuffleDeck = () => {
+    const shuffledArray = [...pokemonDetails];
+    shuffledArray.sort(() => Math.random() - 0.5);
+    setPokemonDetails(shuffledArray);
+  };
+
   const fetchApiData = async () => {
     try {
       const response = await fetch(API);
@@ -62,7 +68,7 @@ export const Board = () => {
   return (
     <div className='board-container'>
       {pokemonDetails.map((pokemon, index) => (
-        <Card key={index} pokemon={pokemon.details} />
+        <Card key={index} pokemon={pokemon.details} shuffleDeck={shuffleDeck} />
       ))}
     </div>
   );
