@@ -3,7 +3,7 @@ import { Card } from './Card';
 
 const API = 'https://pokeapi.co/api/v2/pokemon?limit=10';
 
-export const Board = () => {
+export const Board = ({ increaseScore }) => {
   const [apiData, setApiData] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
 
@@ -55,6 +55,7 @@ export const Board = () => {
 
   useEffect(() => {
     fetchApiData();
+    shuffleDeck();
   }, []);
 
   useEffect(() => {
@@ -63,12 +64,15 @@ export const Board = () => {
     }
   }, [apiData]);
 
-  console.log(pokemonDetails);
-
   return (
     <div className='board-container'>
-      {pokemonDetails.map((pokemon, index) => (
-        <Card key={index} pokemon={pokemon.details} shuffleDeck={shuffleDeck} />
+      {pokemonDetails.map((pokemon) => (
+        <Card
+          key={pokemon.name}
+          pokemon={pokemon.details}
+          shuffleDeck={shuffleDeck}
+          increaseScore={increaseScore}
+        />
       ))}
     </div>
   );
