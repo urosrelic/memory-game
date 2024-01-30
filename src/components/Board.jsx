@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Card } from './Card';
 
-const API = 'https://pokeapi.co/api/v2/pokemon/';
+const API = 'https://pokeapi.co/api/v2/pokemon?limit=10';
 
 export const Board = () => {
   const [apiData, setApiData] = useState([]);
@@ -58,5 +59,11 @@ export const Board = () => {
 
   console.log(pokemonDetails);
 
-  return <div className='board-container'></div>;
+  return (
+    <div className='board-container'>
+      {pokemonDetails.map((pokemon, index) => (
+        <Card key={index} pokemon={pokemon.details} />
+      ))}
+    </div>
+  );
 };
