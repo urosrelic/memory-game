@@ -1,9 +1,12 @@
 import './App.css';
+import { Board } from './components/Board';
+import { Title } from './components/Title';
 
 function App() {
   return (
     <>
-      <h1>Memory Game</h1>
+      <Title />
+      <Board />
     </>
   );
 }
