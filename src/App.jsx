@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 function App() {
   const [clickedPokemon, setClickedPokemon] = useState([]);
   const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
 
   const increaseScore = (name) => {
     if (!clickedPokemon.includes(name)) {
@@ -16,6 +17,10 @@ function App() {
     } else {
       setScore(0);
     }
+
+    if (score > bestScore) {
+      setBestScore(score);
+    }
   };
 
   return (
@@ -24,6 +29,7 @@ function App() {
       <Board increaseScore={increaseScore} />
       <div>
         <p>Score: {score}</p>
+        <p>Best score: {bestScore}</p>
       </div>
     </>
   );
