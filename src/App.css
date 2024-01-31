@@ -9,6 +9,23 @@ body {
   background-size: cover;
 }
 
+/* Title */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  font-size: 64px;
+}
+
+#pokemon-logo {
+  width: 25%;
+}
+
 /* Board */
 .board-container {
   max-width: 100%;
