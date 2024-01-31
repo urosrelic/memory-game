@@ -25,12 +25,8 @@ function App() {
 
   return (
     <>
-      <Title />
+      <Title score={score} bestScore={bestScore} />
       <Board increaseScore={increaseScore} />
-      <div>
-        <p>Score: {score}</p>
-        <p>Best score: {bestScore}</p>
-      </div>
     </>
   );
 }
