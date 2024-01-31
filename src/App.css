@@ -26,7 +26,7 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 48px;
+  font-size: 36px;
   margin-bottom: 50px;
 }
 
@@ -46,7 +46,7 @@ header {
   align-items: center;
   color: #ffcb05;
   text-align: center;
-  font-size: 48px;
+  font-size: 36px;
   margin-bottom: 50px;
 }
 
@@ -87,7 +87,7 @@ header {
 .pokemon-name {
   text-align: center;
   text-transform: uppercase;
-  font-size: 48px;
+  font-size: 36px;
   width: 100%;
   background-color: #3575ad;
 }
