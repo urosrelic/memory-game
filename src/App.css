@@ -14,10 +14,9 @@ body {
 
 /* Title */
 header {
-  margin: 0 25px;
   display: flex;
   flex-direction: row;
-  justify-content: space;
+  justify-content: space-between;
 }
 
 .logo {
@@ -39,6 +38,26 @@ header {
   width: 80%;
 }
 
+.score-container {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: #ffcb05;
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 50px;
+}
+
+.score,
+.best-score {
+  margin: 0 15px;
+  padding: 15px;
+  background-color: rgb(53, 117, 173, 0.8);
+  border-radius: 15px;
+}
+
 /* Board */
 .board-container {
   margin: 0 25px;
@@ -56,7 +75,7 @@ header {
   border: 5px solid #3575ad;
   border-radius: 15px;
   margin: 20px;
-  background-color: rgba(255, 203, 5, 0.7);
+  background-color: rgba(255, 203, 5, 0.8);
   cursor: pointer;
   transition: ease-out 0.1s;
 }
