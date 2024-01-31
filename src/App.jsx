@@ -1,11 +1,13 @@
 import './App.css';
 import { Board } from './components/Board';
+import { GameOver } from './components/GameOver';
 import { Title } from './components/Title';
 
 import { useEffect, useState } from 'react';
 
 function App() {
   const [clickedPokemon, setClickedPokemon] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
@@ -13,9 +15,8 @@ function App() {
     if (!clickedPokemon.includes(name)) {
       setScore((prevScore) => prevScore + 1);
       setClickedPokemon((prevImage) => [...prevImage, name]);
-      console.log(score);
     } else {
-      setScore(0);
+      setGameOver(true);
     }
 
     if (score > bestScore) {
@@ -23,8 +24,20 @@ function App() {
     }
   };
 
+  const restartGame = () => {
+    setGameOver(false);
+    setScore(0);
+  };
+
   return (
     <>
+      {gameOver && (
+        <GameOver
+          score={score}
+          bestScore={bestScore}
+          restartGame={restartGame}
+        />
+      )}
       <Title score={score} bestScore={bestScore} />
       <Board increaseScore={increaseScore} />
     </>
