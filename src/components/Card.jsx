@@ -6,6 +6,7 @@ export const Card = ({ pokemon, shuffleDeck, increaseScore }) => {
   return (
     <div className='card-container' onClick={handleClick}>
       <img id='pokemon-image' src={pokemon.sprites.front_default} />
+      <div className='pokemon-name'>{pokemon.name}</div>
     </div>
   );
 };

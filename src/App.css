@@ -41,7 +41,7 @@ header {
 
 /* Board */
 .board-container {
-  margin: 025px;
+  margin: 0 25px;
   max-width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -50,10 +50,20 @@ header {
 /* Card */
 .card-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  border: 1px solid black;
+  border: 5px solid #3575ad;
   margin: 10px;
-  padding: 10px;
+  background-color: #ffcb05;
+}
+
+.pokemon-name {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 48px;
+  width: 100%;
+  background-color: #3575ad;
 }
 
 #pokemon-image {
