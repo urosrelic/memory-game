@@ -13,6 +13,8 @@ function App() {
       setScore((prevScore) => prevScore + 1);
       setClickedPokemon((prevImage) => [...prevImage, name]);
       console.log(score);
+    } else {
+      setScore(0);
     }
   };
 

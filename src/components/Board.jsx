@@ -55,7 +55,6 @@ export const Board = ({ increaseScore }) => {
 
   useEffect(() => {
     fetchApiData();
-    shuffleDeck();
   }, []);
 
   useEffect(() => {
