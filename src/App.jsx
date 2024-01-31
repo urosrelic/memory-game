@@ -40,6 +40,9 @@ function App() {
       )}
       <Title score={score} bestScore={bestScore} />
       <Board increaseScore={increaseScore} />
+      <div className='hint'>
+        <h3>Hint: Dont click the same image twice</h3>
+      </div>
     </>
   );
 }
