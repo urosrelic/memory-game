@@ -26,6 +26,7 @@ function App() {
 
   const restartGame = () => {
     setGameOver(false);
+    setClickedPokemon([]);
     setScore(0);
   };
 
