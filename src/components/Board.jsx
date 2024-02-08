@@ -24,7 +24,6 @@ export const Board = ({ increaseScore }) => {
 
       const data = await response.json();
       setApiData(data.results);
-      setLoading(false); // Update loading state on successful data fetch
     } catch (error) {
       console.error('Error getting api data');
     }
@@ -46,13 +45,22 @@ export const Board = ({ increaseScore }) => {
   };
 
   const updatePokemonDetails = async () => {
-    const updatedArray = [];
-    for (const pokemon of apiData) {
-      const details = await fetchPokemonDetails(pokemon.url);
-      updatedArray.push({ ...pokemon, details });
-    }
+    try {
+      const uniqueUrls = [...new Set(apiData.map((pokemon) => pokemon.url))];
+      const detailsPromises = uniqueUrls.map((url) => fetchPokemonDetails(url));
+      const detailsArray = await Promise.all(detailsPromises);
 
-    setPokemonDetails(updatedArray);
+      const updatedArray = apiData.map((pokemon, index) => ({
+        ...pokemon,
+        details: detailsArray[index],
+      }));
+
+      setPokemonDetails(updatedArray);
+    } catch (error) {
+      console.error('Error updating pokemon details', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
