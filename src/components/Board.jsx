@@ -24,9 +24,10 @@ export const Board = ({ increaseScore }) => {
 
       const data = await response.json();
       setApiData(data.results);
-      setLoading(false); // Update loading state on successful data fetch
     } catch (error) {
       console.error('Error getting api data');
+    } finally {
+      setLoading(false); // Update loading state on successful data fetch
     }
   };
 
