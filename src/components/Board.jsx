@@ -26,6 +26,8 @@ export const Board = ({ increaseScore }) => {
       setApiData(data.results);
     } catch (error) {
       console.error('Error getting api data');
+    } finally {
+      setLoading(false); // Update loading state on successful data fetch
     }
   };
 
