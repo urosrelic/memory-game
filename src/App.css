@@ -73,7 +73,12 @@ header {
   margin: 0 25px;
   max-width: 100%;
   display: grid;
+  text-align: center;
   grid-template-columns: repeat(5, 1fr);
+}
+
+#loading-text {
+  color: #ffcb05;
 }
 
 /* Card */

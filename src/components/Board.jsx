@@ -6,6 +6,7 @@ const API = 'https://pokeapi.co/api/v2/pokemon?limit=10';
 export const Board = ({ increaseScore }) => {
   const [apiData, setApiData] = useState([]);
   const [pokemonDetails, setPokemonDetails] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const shuffleDeck = () => {
     const shuffledArray = [...pokemonDetails];
@@ -23,6 +24,7 @@ export const Board = ({ increaseScore }) => {
 
       const data = await response.json();
       setApiData(data.results);
+      setLoading(false); // Update loading state on successful data fetch
     } catch (error) {
       console.error('Error getting api data');
     }
@@ -65,14 +67,17 @@ export const Board = ({ increaseScore }) => {
 
   return (
     <div className='board-container'>
-      {pokemonDetails.map((pokemon) => (
-        <Card
-          key={pokemon.name}
-          pokemon={pokemon.details}
-          shuffleDeck={shuffleDeck}
-          increaseScore={increaseScore}
-        />
-      ))}
+      {loading && <h1 id='loading-text'>Loading...</h1>}
+      {pokemonDetails.length > 0 &&
+        !loading &&
+        pokemonDetails.map((pokemon) => (
+          <Card
+            key={pokemon.name}
+            pokemon={pokemon.details}
+            shuffleDeck={shuffleDeck}
+            increaseScore={increaseScore}
+          />
+        ))}
     </div>
   );
 };
